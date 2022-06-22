@@ -1,7 +1,8 @@
 # 希尔排序
 
 ```java
-public static int[] shellSort(int[] nums) {
+public class ShellSort {
+    public static int[] sortArray(int[] nums) {
         int len = nums.length;
         /*按增量分组后，每个分组中，temp代表当前待排序的数据，该元素之前的组内元素均已被排序过*/
         /*grp指用来分组的增量，会依次递减*/
@@ -26,4 +27,5 @@ public static int[] shellSort(int[] nums) {
         }
         return nums;
     }
+}
 ```

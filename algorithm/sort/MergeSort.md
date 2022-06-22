@@ -1,6 +1,7 @@
 # 归并排序
 
 ```java
+public class MergeSort {
     public static int[] sortArray(int[] nums) {
         if (nums.length < 2) return nums;
         int mid = nums.length / 2;
@@ -29,4 +30,6 @@
         System.out.println("--------------------------------");
         return result;
     }
+}
+
 ```

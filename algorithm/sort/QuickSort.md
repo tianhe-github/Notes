@@ -1,7 +1,8 @@
 # 快速排序
 
 ```java
-    public static void quickSort(int[] nums) {
+public class QuickSort {
+    public static void sortArray(int[] nums) {
         sort(nums, 0, nums.length - 1);
         System.out.println(Arrays.toString(nums));
     }
@@ -32,4 +33,5 @@
         sort(nums, low, left - 1);
         sort(nums, left + 1, high);
     }
+}
 ```

@@ -1,7 +1,8 @@
 # 选择排序
 
 ```java
-    public static int[] chooseSort(int[] nums) {
+  public class ChooseSort {
+    public static int[] sortArray(int[] nums) {
         if (nums.length == 0) return nums;
         for (int i = 0; i < nums.length; i++) {
             int minIndex = i;//最小值下标
@@ -21,4 +22,5 @@
         }
         return nums;
     }
+}
 ```
