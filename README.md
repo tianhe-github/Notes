@@ -9,3 +9,10 @@
     - [插入排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/InsertSort.md)
         
     - [快速排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/QuickSort.md)
+
+    - [希尔排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/ShellSort.md)
+
+    - [归并排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/MergeSort.md)
+
+    - [堆排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/ShellSort.md)
+ 
