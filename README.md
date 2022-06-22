@@ -14,5 +14,5 @@
 
     - [归并排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/MergeSort.md)
 
-    - [堆排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/ShellSort.md)
+    - [堆排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/HeapSort.md)
  
