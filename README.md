@@ -23,8 +23,8 @@
     
     - [基数排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/RadixSort.md)
     
-- [leetcode](https://github.com/tianhe-github/Notes/tree/main/algorithm/sort)
+- [leetcode](https://github.com/tianhe-github/Notes/tree/main/algorithm/leetcode)
 
-    - [冒泡排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/BubbleSort.md)
+    - [1-两数之和](https://github.com/tianhe-github/Notes/blob/main/algorithm/leetcode/1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C.md)
 
  
