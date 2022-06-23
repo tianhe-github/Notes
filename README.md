@@ -20,6 +20,8 @@
     
     - [桶排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/BucketSort.md)
     
+    - [基数排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/RadixSort.md)
+    
     
 
  
