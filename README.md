@@ -2,6 +2,7 @@
 
 ## 算法
 - [排序](https://github.com/tianhe-github/Notes/tree/main/algorithm/sort)
+
     - [冒泡排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/BubbleSort.md)
 
     - [选择排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/ChooseSort.md)
@@ -22,6 +23,8 @@
     
     - [基数排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/RadixSort.md)
     
-    
+- [leetcode](https://github.com/tianhe-github/Notes/tree/main/algorithm/sort)
+
+    - [冒泡排序](https://github.com/tianhe-github/Notes/blob/main/algorithm/sort/BubbleSort.md)
 
  
