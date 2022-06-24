@@ -2,7 +2,7 @@
 
 ### Activity生命周期
 
-- ![Activity生命周期](../../img/activity生命周期.png)
+- ![Activity生命周期](../../img/activity生命周期.png#pic_cente)
 
 - 在A跳转B会执行：
     **A onPause ->  B onCreate -> B onStart -> B onResume->A onStop**
