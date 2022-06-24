@@ -1,7 +1,8 @@
 # Activity
 
 ### Activity生命周期
-![](/img/20130828141902812.png)
+
+- ![1](../img/20130828141902812.png)
 
 - 在A跳转B会执行：
     **A onPause ->  B onCreate -> B onStart -> B onResume->A onStop**
