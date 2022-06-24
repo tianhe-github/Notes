@@ -2,7 +2,7 @@
 
 ## 1. Activity的启动流程
 
-![Activity生命周期](../../img/activity启动流程.png)
+![Activity生命周期](../img/activity启动流程.png)
 
 ### 1.1 Activity跨进程启动
 
