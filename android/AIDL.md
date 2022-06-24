@@ -68,9 +68,11 @@ Client和Server都使用同一个AIDL文件，在AIDL 编译后会生成java文�
 
 运行在服务端的Binder线程池中，当客户端发起跨进程请求时，onTransact()根据 Client传来的 code 调用相关函数  。调用完成后把数据写入Parcel，通过reply发送给Client。 驱动唤醒 Client 进程里刚刚挂起的线程并将结果返回。   
 
-<img src="../../img/aidl.png" width = "450" height = "200" alt="图片名称" align=center />
+<img src="../img/aidl.png" width = "450" height = "200" alt="图片名称" align=center />
 
-#####  13. 如何优化多模块都使用AIDL的情况
+</br>
+
+## 5. 如何优化多模块都使用AIDL的情况
 
 每个业务模块创建自己的AIDL接口并创建Stub的实现类，向服务端提供自己的唯一标识和实现类。
 
@@ -82,7 +84,7 @@ Client和Server都使用同一个AIDL文件，在AIDL 编译后会生成java文�
 
 https://blog.csdn.net/it_yangkun/article/details/79888900
 
-## 代码
+## 6. 代码编写
 
 1. 创建一个接口，再里面定义方法
 
