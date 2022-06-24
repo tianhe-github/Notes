@@ -1,7 +1,7 @@
 # Activity
 
 ### Activity生命周期
-![](https://github.com/tianhe-github/Notes/blob/main/android/activity/imgs/687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313330383238313431393032383132.png)
+![](https://github.com/tianhe-github/Notes/blob/main/android/activity/imgs/20130828141902812)
 
 
 - 在A跳转B会执行：A onPause ->  B onCreate -> B onStart -> B onResume->A onStop
