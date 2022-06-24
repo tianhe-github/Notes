@@ -1,7 +1,7 @@
 # Activity
 
 ### Activity生命周期
-![](../img/20130828141902812.png)
+![](/img/20130828141902812.png)
 
 - 在A跳转B会执行：
     **A onPause ->  B onCreate -> B onStart -> B onResume->A onStop**
@@ -15,7 +15,7 @@
 - 在A跳转B会执行：
     **A onPause ->  B onCreate -> B onStart -> B onResume->A onStop**
 - 当 B Activity 的 launchMode 为 singleInstance，singleTask 且对应的 B Activity 有可复用的实例时，生命周期回调是这样的: 
-    **A.onPause -> B.onNewIntent -> B.onRestart -> B.onStart -> B.onResume -> A.onStop -> ( 如果 A 被移出栈的话还有一个 A.onDestory)** 
+**A.onPause -> B.onNewIntent -> B.onRestart -> B.onStart -> B.onResume -> A.onStop -> ( 如果 A 被移出栈的话还有一个 A.onDestory)** 
 
 - 在A跳转B会执行：
     **A onPause ->  B onCreate -> B onStart -> B onResume->A onStop**
