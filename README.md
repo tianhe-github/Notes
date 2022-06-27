@@ -1,6 +1,6 @@
 # 安卓开发面试笔记
 
-### [算法](https://github.com/tianhe-github/Notes/blob/main/Algorithm.md)
+### [算法](Algorithm.md)
 
-### [Android](https://github.com/tianhe-github/Notes/blob/main/Android.md)
+### [Android](Android.md)
 
