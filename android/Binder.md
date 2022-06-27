@@ -6,7 +6,7 @@ https://www.colabug.com/2019/0421/6041679/
 https://juejin.im/post/6844903469971685390#heading-0
 
 
-#####  1.Android中进程和线程的关系,区别
+###  1.Android中进程和线程的关系,区别
 
 1、进程是什么？  
     它是系统进行资源分配和调度的一个独立单位,也就是说进程是可以独立运行的一段程序。  
@@ -19,7 +19,7 @@ https://juejin.im/post/6844903469971685390#heading-0
 3、进程间通信IPC，线程间可以直接读写进程数据段（如全局变量）来进行通信——需要进程同步和互斥手段的辅助，以保证数据的一致性。  
  
 
-#####  2.为何需要进行IPC,多进程通信可能会出现什么问题
+###  2.为何需要进行IPC,多进程通信可能会出现什么问题
 
 
   为了保证进程空间不被其他进程破坏或干扰，Linux中的进程是相互独立或相互隔离的。在Android系统中一个应用默认只有一个进程，每个进程都有自己独立的资源和内存空间，其它进程不能任意访问当前进程的内存和资源。这样导致在不同进程的四大组件没法进行通信，线程间没法做同步，静态变量和单例也会失效。所以需要有一套IPC机制来解决进程间通信、数据传输的问题。
@@ -49,11 +49,11 @@ public class MyApplication extends Application{
 }
  ```
 
-##### 3.Android中IPC方式有几种、各种方式优缺点
+### 3.Android中IPC方式有几种、各种方式优缺点
    <img src="../img/binder2.png" width = "600" height = "400" alt="图片名称" align=center />
 
 
-##### 4.为何新增Binder来作为主要的IPC方式
+### 4.为何新增Binder来作为主要的IPC方式
 
  Android也是基于Linux内核，Linux现有的进程通信手段有管道/消息队列/共享内存/套接字/信号量。
 
@@ -73,7 +73,7 @@ public class MyApplication extends Application{
 
 3、安全性：传统Linux IPC的接收方无法获得对方进程可靠的UID/PID，从而无法鉴别对方身份；而Binder机制为每个进程分配了UID/PID，且在Binder通信时会根据UID/PID进行有效性检测。
 
-##### 5.什么是Binder
+### 5.什么是Binder
 
 从进程间通信的角度看，Binder 是一种进程间通信的机制；
 
@@ -93,7 +93,7 @@ Client、Server、ServiceManager均在用户空间中实现，而Binder驱动程
 
 
 
-##### 6.Binder的原理<br/>&nbsp;&nbsp;&nbsp;Binder Driver 如何在内核空间中做到一次拷贝的
+### 6.Binder的原理<br/>&nbsp;&nbsp;&nbsp;Binder Driver 如何在内核空间中做到一次拷贝的
 
 
 
@@ -122,7 +122,7 @@ Client、Server、ServiceManager均在用户空间中实现，而Binder驱动程
 
 
 
-##### 7.使用Binder进行数据传输的具体过程
+### 7.使用Binder进行数据传输的具体过程
 
 
 系统层面:
@@ -182,16 +182,16 @@ ServiceManager进程查到到用户进程需要的服务进程信息最后
 
 
 
-#####  8.Binder框架中ServiceManager的作用
+###  8.Binder框架中ServiceManager的作用
 
 ServiceManager使得客户端可以获取服务端binder实例对象的引用
 
 
 
-#####  9.什么是AIDL
+###  9.什么是AIDL
  AIDL是android提供的接口定义语言，简化Binder的使用 ， 轻松地实现IPC进程间通信机制。 AIDL会生成一个服务端对象的代理类，通过它客户端可以实现间接调用服务端对象的方法。
    
-#####  10.AIDL使用的步骤
+###  10.AIDL使用的步骤
 
  书写 AIDL
 
@@ -215,7 +215,7 @@ bindService()
 
 调用 AIDL 类中定义好的操作请求   
 
-#####  11.AIDL支持哪些数据类型
+###  11.AIDL支持哪些数据类型
 
 Java八种基本数据类型(int、char、boolean、double、float、byte、long、string) 但不支持short
 
@@ -225,7 +225,7 @@ List和Map，List接收方必须是ArrayList，Map接收方必须是HashMap
 
 实现Parcelable的类	
 
-#####  12.AIDL的关键类，方法和工作流程
+###  12.AIDL的关键类，方法和工作流程
 
 Client和Server都使用同一个AIDL文件，在AIDL 编译后会生成java文件 ,其中有Stub服务实体和Proxy服务代理两个类  
 
@@ -254,7 +254,7 @@ onTransact()根据 Client传来的 code 调用相关函数  。调用完成后�
 
    <img src="../img/binder1.png" width = "450" height = "200" alt="图片名称" align=center />
 
-#####  13.如何优化多模块都使用AIDL的情况
+###  13.如何优化多模块都使用AIDL的情况
 每个业务模块创建自己的AIDL接口并创建Stub的实现类，向服务端提供自己的唯一标识和实现类。
 
 服务端只需要一个Service，创建Binder连接池接口,跟据业务模块的特征来返回相应的Binder对象.
@@ -267,7 +267,7 @@ https://blog.csdn.net/it_yangkun/article/details/79888900
 
 
 
-#####  14.使用 Binder 传输数据的最大限制是多少，被占满后会导致什么问题
+###  14.使用 Binder 传输数据的最大限制是多少，被占满后会导致什么问题
 因为Binder本身就是为了进程间频繁而灵活的通信所设计的，并不是为了拷贝大数据而使用的。比如在Activity之间传输BitMap的时候，如果Bitmap过大，就会引起问题，比如崩溃等，这其实就跟Binder传输数据大小的限制有关系
 
 mmap函数会为Binder数据传递映射一块连续的虚拟地址，这块虚拟内存空间其实是有大小限制。
@@ -288,7 +288,7 @@ mmap函数会为Binder数据传递映射一块连续的虚拟地址，这块虚�
 
 
 
-#####  15.Binder 驱动加载过程中有哪些重要的步骤
+###  15.Binder 驱动加载过程中有哪些重要的步骤
 从 Java 层来看就像访问本地接口一样，客户端基于 BinderProxy 服务端基于 IBinder 对象 。
 
 在Native层有一套完整的binder通信的C/S架构，Bpinder作为客户端，BBinder作为服务端。基于naive层的Binder框架，Java也有一套镜像功能的binder C/S架构，通过JNI技术，与native层的binder对应，Java层的binder功能最终都是交给native的binder来完成。
@@ -299,7 +299,7 @@ mmap函数会为Binder数据传递映射一块连续的虚拟地址，这块虚�
 
 
 
-#####  16.系统服务与bindService启动的服务的区别
+###  16.系统服务与bindService启动的服务的区别
 
 服务可分为系统服务与普通服务，系统服务一般是在系统启动的时候，由SystemServer进程创建并注册到ServiceManager中 例如AMS，WMS，PMS。而普通服务一般是通过ActivityManagerService启动的服务，或者说通过四大组件中的Service组件启动的服务。不同主要从以下几个方面：
 
@@ -320,7 +320,7 @@ mmap函数会为Binder数据传递映射一块连续的虚拟地址，这块虚�
 使用系统服务一般都是通过ServiceManager的getService得到服务的句柄，这个过程其实就是去ServiceManager中查询注册系统服务。而bindService启动的服务，主要是去ActivityManagerService中去查找相应的Service组件，最终会将Service内部Binder的句柄传给Client
 
 
-#####  17.Activity的bindService流程
+###  17.Activity的bindService流程
 
 1、Activity调用bindService：通过Binder通知ActivityManagerService，要启动哪个Service
 
@@ -335,5 +335,5 @@ mmap函数会为Binder数据传递映射一块连续的虚拟地址，这块虚�
 
 
 
-#####  18.不通过AIDL，手动编码来实现Binder的通信
+###  18.不通过AIDL，手动编码来实现Binder的通信
 

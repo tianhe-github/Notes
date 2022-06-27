@@ -1,7 +1,7 @@
 # View事件分发
 
 
-#####  1.View事件分发机制
+###  1.View事件分发机制
 
 https://www.jianshu.com/p/e99b5e8bd67b
 
@@ -27,7 +27,7 @@ DecorView。superDispatchTouchEvent-> ViewGroup的dispatchTouchEvent()。
 
 
 
-##### 2.view的onTouchEvent，OnClickListerner和OnTouchListener的onTouch方法 三者优先级
+### 2.view的onTouchEvent，OnClickListerner和OnTouchListener的onTouch方法 三者优先级
 
  dispatchTouchEvent->onTouch->onInterceptTouchEvent->onTouchEvent。  
 1.dispatchTouchEvent中限制性mOnTouchListener.onTouch()  onTouchListener的onTouch方法优先级比onTouchEvent高，会先触发。
@@ -36,7 +36,7 @@ DecorView。superDispatchTouchEvent-> ViewGroup的dispatchTouchEvent()。
 
 
 
-##### 3.onTouch 和onTouchEvent 的区别
+### 3.onTouch 和onTouchEvent 的区别
 onTouch方法是View的 OnTouchListener借口中定义的方法。
 当一个View绑定了OnTouchLister后，当有touch事件触发时，就会调用onTouch方
 onTouchEvent  处理点击事件在dispatchTouchEvent中掉用
@@ -48,12 +48,12 @@ onTouchEvent  处理点击事件在dispatchTouchEvent中掉用
 
 
 
-##### 4.ACTION_CANCEL什么时候触发
+### 4.ACTION_CANCEL什么时候触发
 1.如果在父View中拦截ACTION_UP或ACTION_MOVE，在第一次父视图拦截消息的瞬间，父视图指定子视图不接受后续消息了，同时子视图会收到ACTION_CANCEL事件。  
 2.如果触摸某个控件，但是又不是在这个控件的区域上抬起（移动到别的地方了），就会出现action_cancel。
 
 
-##### 5.事件是先到DecorView还是先到Window
+### 5.事件是先到DecorView还是先到Window
 DecorView -> Activity -> PhoneWindow -> DecorView  
 当屏幕被触摸input系统事件从Native层分发Framework层的InputEventReceiver.dispachInputEvent()调用了ViewRootImpl.WindowInputEventReceiver.dispachInputEvent()->ViewRootImpl中的DecorView.dispachInputEvent()->Activity.dispachInputEvent()->window.superDispatchTouchEvent()->DecorView.superDispatchTouchEvent()->Viewgroup.superDispatchTouchEvent()
  <img src="../img/viewfenfa1.png" width = "600" height = "300" alt="图片名称" align=center />
@@ -63,12 +63,12 @@ DecorView -> Activity -> PhoneWindow -> DecorView
 
 
 
-#####  6.点击事件被拦截，但是想传到下面的View，如何操作
+###  6.点击事件被拦截，但是想传到下面的View，如何操作
 重写子类的requestDisallowInterceptTouchEvent()方法返回true就不会执行父类的onInterceptTouchEvent()， 可将点击事件传到下面的View, 剥夺了父view 对除了ACTION_DOWN以外的事件的处理权。
 
 
 
-#####  7.如何解决View的事件冲突
+###  7.如何解决View的事件冲突
 
 
 
@@ -98,7 +98,7 @@ https://www.jianshu.com/p/982a83271327
 
 
 
-##### 8.在 ViewGroup 中的 onTouchEvent 中消费 ACTION_DOWN 事件，ACTION_UP事件是怎么传递
+### 8.在 ViewGroup 中的 onTouchEvent 中消费 ACTION_DOWN 事件，ACTION_UP事件是怎么传递
 
 一个事件序列只能被一个View拦截且消耗。因为一旦一个元素拦截了此事件，那么同一个事件序列内的所有事件都会直接交给它处理（即不会再调用这个View的拦截方法去询问它是否要拦截了，而是把剩余的ACTION_MOVE、ACTION_DOWN等事件直接交给它来处理）。
 
@@ -111,7 +111,7 @@ Activity.dispatchTouchEvent() -> ViewGroup1.dispatchTouchEvent() -> ViewGroup1.o
 
 
 
-##### 9.Activity ViewGroup和View都不消费ACTION_DOWN,那么ACTION_UP事件是怎么传递的
+### 9.Activity ViewGroup和View都不消费ACTION_DOWN,那么ACTION_UP事件是怎么传递的
 
 ACTION_DOWN:-> Activity.dispatchTouchEvent() -> ViewGroup1.dispatchTouchEvent() -> ViewGroup1.onInterceptTouchEvent() -> view1.dispatchTouchEvent() -> view1.onTouchEvent() -> ViewGroup1.onTouchEvent() -> Activity.onTouchEvent();
 
@@ -122,13 +122,13 @@ ACTION_MOVE > Activity.dispatchTouchEvent()
 
 
 
-#####  10.同时对父 View 和子 View 设置点击方法，优先响应哪个
+###  10.同时对父 View 和子 View 设置点击方法，优先响应哪个
  优先响应子 view， ，如果先响应父 view，那么子 view 将永远无法响应，父 view 要优先响应事件，必须先调用 onInterceptTouchEvent 对事件进行拦截，那么事件不会再往下传递，直接交给父 view 的 onTouchEvent 处理。
 
 
 
 
-#####  11.requestDisallowInterceptTouchEvent的调用时机
+###  11.requestDisallowInterceptTouchEvent的调用时机
 
 
 事件分发列子

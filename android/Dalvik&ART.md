@@ -1,11 +1,11 @@
+# Art & Dalvik
 
 
 
 
 
 
-
-#### Art & Dalvik 及其区别
+### Art & Dalvik 及其区别
 
 
 
@@ -29,7 +29,7 @@ Dalvik，ART是Android的两种运行环境，也可以叫做Android虚拟机 JI
 
 在ART虚拟机上安装时，Dex文件会直接由dex2oat工具翻译成oat格式的文件，oat文件中既包含了dex文件中原先的内容，也包含了已经编译好的native代码。
 
-#### 1.Dalvik
+### 1.Dalvik
 
 1.原理
 
@@ -47,7 +47,7 @@ JIT编译器，当App运行时，每当遇到一个新类，JIT编译器就会�
 Dalvik进程管理是依赖于linux的进程体系结构的，如要为应用程序创建一个进程，它会使用linux的fork机制来复制一个进程。
 
 
-#### 2.ART
+### 2.ART
 
 1.原理
 

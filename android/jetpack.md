@@ -1,6 +1,6 @@
 # jetpack
 
-####  一. Navigation
+###  一. Navigation
 
 https://mp.weixin.qq.com/s/1URoDU0zgoYlSQM8zYqx9w
 
@@ -244,7 +244,7 @@ https://blog.csdn.net/weixin_42575043/article/details/108709467
 2.可以自定义FragmentNavigator解决Fragment重复创建的问题
 
 
-####  二. DataBinding
+###  二. DataBinding
 https://blog.csdn.net/LucasXu01/article/details/103807451
 
 https://juejin.cn/post/6844903494831308814#heading-6
@@ -285,7 +285,7 @@ ViewDataBindingImpl的executeBindings方法中在设置了双向绑定的控件�
  https://juejin.cn/post/6844903872520011784#heading-0
 
 
-####  三. ViewModel
+###  三. ViewModel
 
 https://blog.csdn.net/c10wtiybq1ye3/article/details/89934891
 

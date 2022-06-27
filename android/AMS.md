@@ -1,6 +1,6 @@
 #AMS
 
-##### 1.ActivityManagerService是什么？什么时候初始化的？有什么作用？
+### 1.ActivityManagerService是什么？什么时候初始化的？有什么作用？
 
 ActivityManagerService 主要负责系统中四大组件的启动、切换、调度及应用进程的管理和调度等工作，其职责与操作系统中的进程管理和调度模块类似。
 
@@ -9,7 +9,7 @@ ActivityManagerService进行初始化的时机很明确，就是在SystemServer�
 如果打开一个App的话，需要AMS去通知zygote进程， 所有的Activity的生命周期AMS来控制
 
 
-#####  2.ActivityThread是什么?ApplicationThread是什么?他们的区别
+###  2.ActivityThread是什么?ApplicationThread是什么?他们的区别
 
 ActivityThread
 
@@ -23,7 +23,7 @@ ApplicationThread
 
 
 
-#####  3.Instrumentation是什么？和ActivityThread是什么关系？
+###  3.Instrumentation是什么？和ActivityThread是什么关系？
 
 
  AMS与ActivityThread之间诸如Activity的创建、暂停等的交互工作实际上是由Instrumentation具体操作的。每个Activity都持有一个Instrumentation对象的一个引用， 整个进程中是只有一个Instrumentation。mInstrumentation的初始化在ActivityThread::handleBindApplication函数。
@@ -37,7 +37,7 @@ ApplicationThread
 
 
 
-#####  4.ActivityManagerService和zygote进程通信是如何实现的。
+###  4.ActivityManagerService和zygote进程通信是如何实现的。
 
 应用启动时,Launcher进程请求AMS。
 AMS发送创建应用进程请求，Zygote进程接受请求并fork应用进程
@@ -76,7 +76,7 @@ Zygote 服务端接收到参数之后调用 ZygoteConnection.processOneCommand()
 最后通过 findStaticMain() 找到 ActivityThread 类的 main() 方法并执行，子进程就启动了
 
 
-##### 5. ActivityRecord、TaskRecord、ActivityStack，ActivityStackSupervisor，ProcessRecord
+### 5. ActivityRecord、TaskRecord、ActivityStack，ActivityStackSupervisor，ProcessRecord
 
 
 https://duanqz.github.io/2016-02-01-Activity-Maintenance#activityrecord
@@ -186,7 +186,7 @@ ProcessRecord记录着属于一个进程的所有ActivityRecord，运行在不�
 ![ams2](../img/ams7.jpg)
 
 
-#####  6.ActivityManager、ActivityManagerService、ActivityManagerNative、ActivityManagerProxy的关系
+###  6.ActivityManager、ActivityManagerService、ActivityManagerNative、ActivityManagerProxy的关系
 
 https://www.cnblogs.com/mingfeng002/p/10650364.html
 
@@ -220,7 +220,7 @@ ActivityManager持有的是这个ActivityManagerPorxy代理对象，这样，只
 
 <img src="../img/ams8.jpg" width = "700" height = "400" alt="图片名称" align=center />
 
-#####  7.手写实现简化版AMS
+###  7.手写实现简化版AMS
 
 AMS与Binder相关，其中要明白下面几个类的职责:
 

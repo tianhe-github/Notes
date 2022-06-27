@@ -2,7 +2,7 @@
 
 https://my.oschina.net/zbj1618/blog/2961367
 
-####  1.Bitmap 内存占用的计算
+###  1.Bitmap 内存占用的计算
 
 
 占用的内存大小 = 像素总数量（图片宽x高）x 每个像素的字节大小
@@ -38,7 +38,7 @@ densityDpi	 160	240	 320	    480	    640
 
 占用的内存 =  width * height  * 一个像素所占的内存。
 
-#### 2.getByteCount() & getAllocationByteCount()的区别
+### 2.getByteCount() & getAllocationByteCount()的区别
 
 
 如果被复用的Bitmap的内存比待分配内存的Bitmap大
@@ -49,7 +49,7 @@ getAllocationByteCount()获取到的是被复用Bitmap真实占用内存大小
 
 在复用Bitmap的情况下，getAllocationByteCount()可能会比getByteCount()大。
 
-#### 3.Bitmap的压缩方式
+### 3.Bitmap的压缩方式
 
 
 质量压缩，不会对内存产生影响；
@@ -105,7 +105,7 @@ matrix.setScale(0.5f, 0.5f);
 bm = Bitmap.createBitmap(bit, 0, 0, bit.getWidth(),bit.getHeight(), matrix, true);
 ```
 
-#### 4.LruCache & DiskLruCache原理
+### 4.LruCache & DiskLruCache原理
 
 **LRU（Least Recently Used）**
 
@@ -213,7 +213,7 @@ newOutputStream
 2重新比较当前缓存和最大缓存的大小，如果超过最大缓存或者journal文件的操作大于2000条，就把集合中的缓存删除一部分，直到小于最大缓存，重新建立新的journal文件
 
 
-#### 5.如何设计一个图片加载库
+### 5.如何设计一个图片加载库
 
 https://juejin.cn/post/6844904099297624077#heading-0
 
@@ -227,12 +227,12 @@ https://juejin.cn/post/6844904099297624077#heading-0
 4.及时回收
 
 
-#### 6.有一张非常大的图片,如何去加载这张大图片
+### 6.有一张非常大的图片,如何去加载这张大图片
 
 
 
 
-#### 7、如果把drawable-xxhdpi下的图片移动到drawable-xhdpi下，图片内存是如何变的。
+### 7、如果把drawable-xxhdpi下的图片移动到drawable-xhdpi下，图片内存是如何变的。
 
 
 验证
@@ -245,7 +245,7 @@ https://juejin.cn/post/6844904099297624077#heading-0
     width * height *  * 
         内存占用=(原始宽×缩放比)×(原始高×缩放比)×targetDensity/inDensity×一个像素所占的内存  =1000×0.5833×447×0.5833×4  =583×260×4  =606320byte  ≈0.578MB
 
-#### 8、如果在hdpi、xxhdpi下放置了图片，加载的优先级。如果是400*800，1080*1920，加载的优先级。
+### 8、如果在hdpi、xxhdpi下放置了图片，加载的优先级。如果是400*800，1080*1920，加载的优先级。
 
 https://cloud.tencent.com/developer/article/1015960
 

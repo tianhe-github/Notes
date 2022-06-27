@@ -37,22 +37,22 @@
 
 ### 2.1 启动模式
 
-* **Standard**
+* **Standard**  
     默认模式，每次启动Activity都会创建一个新的Activity实例。
 
-* **SingleTop**
+* **SingleTop**  
     通知消息打开的页面
     
     如果要启动的Activity已经在栈顶，则不会重新创建Activity，只会调用该该Activity的onNewIntent()方法。
 
     如果要启动的Activity不在栈顶，则会重新创建该Activity的实例。
 
-* **SingleTask**
+* **SingleTask**  
     主界面
 
     如果要启动的Activity已经存在于它想要归属的栈中，那么不会创建该Activity实例，将栈中位于该Activity上的所有的Activity出栈，同时该Activity的onNewIntent()方法会被调用。
 
-* **SingleInstance**
+* **SingleInstance**  
     呼叫来电界面
 
     要创建在一个新栈，然后创建该Activity实例并压入新栈中，新栈中只会存在这一个Activity实例。

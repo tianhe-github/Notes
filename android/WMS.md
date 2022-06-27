@@ -14,7 +14,7 @@ https://blog.csdn.net/freekiteyu/article/details/79483406
 
 
  
-**1.什么是WMS**  
+### 1.什么是WMS      
  WMS（WindowManagerService）是负责Android的窗口的管理的服务，比如窗口的添加、移除、调整顺序等等。
  它运行在System_server进程，作为服务端，客户端（应用程序）通过IPC调用和它进行交互
  是管理接口WindowManager的真正的实现类，至于图像的绘制图像绘制的是SurfaceFlinger(Android UI渲染体系的核心)服务。
@@ -36,7 +36,7 @@ https://blog.csdn.net/freekiteyu/article/details/79483406
 <img src="../img/clipboard.png" width = "600" height = "300" alt="图片名称" align=center />
  
 
-**2.WMS是如何管理Window的**
+### 2.WMS是如何管理Window的   
  
  
 1.setContentView把layoutResID 添加到 decorView中.
@@ -59,7 +59,7 @@ https://blog.csdn.net/freekiteyu/article/details/79483406
 
 
 
-**3.IWindowSession是什么，WindowSession的创建过程是怎样的**  
+### 3.IWindowSession是什么，WindowSession的创建过程是怎样的     
  它是一个Binder对象，用于进行进程间通信，IWindowSession是Client端的代理，它的Server端的实现为Session，
   ViewRootImpl通过IWindowSession向WMS发起Binder调用，而WMS也会通过IWindow向应用端发起调用
  每个应用程序进程都会对应一个Session，其他的应用程序进程想要和WMS进程进行通信就需要经过Session。
@@ -68,7 +68,7 @@ WindowSession的类型是IWindowSession，本身是Binder对象，真正实现�
 
 
 
-**4.WindowToken是什么**  
+### 4.WindowToken是什么  
 1会将相同组件（比如Acitivity）的窗口（WindowState）集合在一起，方便管理。
 例如在进行窗口ZOrder排序时，属于同一个WindowToken的窗口会被安排在一起。  
 2.对于显示组件（客户端）而言的Token，是任意一个Binder的实例，使用addWindowToken()函数声明Token
@@ -77,11 +77,11 @@ WindowSession的类型是IWindowSession，本身是Binder对象，真正实现�
 当应用程序想要向WMS申请新创建一个窗口，则需要向WMS出示有效的WindowToken。 
 应用程序中每个Activity都对应一个AppWindowToken。
 
-**5.WindowState是什么**  
+### 5.WindowState是什么    
  WindowState表示一个窗口的所有属性，所以它是WMS中事实上的窗口  
    <img src="../img/wms1.png" width = "600" height = "300" alt="图片名称" align=center />
 
-**6.Android窗口大概分为几种？分组原理是什么**  
+### 6.Android窗口大概分为几种？分组原理是什么     
 应用窗口（拥有自己的WindowToken） 例如：Activity与Dialog
 子窗口（必须依附到其他非子窗口才能存在，比如Activity等） 例如：PopupWindow
 系统窗口 例如：Toast
@@ -96,7 +96,7 @@ Toast的Window类型是TYPE_TOAST，Toast的token是由NotificationManagerServic
 每个Toast对应一个自己的token，Toast的token在WMS对应的是WindowToken。
  每一种类型都有int常量标识，wms进行窗口叠加的时候会按照该int常量的大小分配不同层，int值越大层位置越靠上面。
  
-**7.Dialog的Context只能是Activity的Context，不能是Application的Context**  
+### 7.Dialog的Context只能是Activity的Context，不能是Application的Context    
  Dialog初始化时是通过Context.getSystemServer来获取WindowManager
 如果用Application或者Service的Context去获取这个WindowManager服务的话,token是空的,
 之后在Dialog的show方法中将Dialog的View添加到WindowManager时会给token设置默认值还是null.
@@ -106,9 +106,9 @@ Toast的Window类型是TYPE_TOAST，Toast的token是由NotificationManagerServic
 
  
 
-**8.App应用程序如何与SurfaceFlinger通信的**
+### 8.App应用程序如何与SurfaceFlinger通信的   
 
-**View 的绘制是如何把数据传递给 SurfaceFlinger 的？**
+### View 的绘制是如何把数据传递给 SurfaceFlinger 的？  
 
   Android应用程序需要传递给SurfaceFlinger服务的UI元数据是相当可观的。
   在这种情况下，通过Binder来在Android应用程序与SurfaceFlinger服务之间传递UI元数据是不合适的，因此这里选择了匿名共享内存的方案。在每一个Android应用程序与SurfaceFlinger服务之间的连接上加上一块用来传递UI元数据的匿名共享内存。这块区域被包装为SharedClient。
@@ -120,7 +120,7 @@ Toast的Window类型是TYPE_TOAST，Toast的token是由NotificationManagerServic
 
  
 
-**9.共享内存的具体实现是什么**  
+### 9.共享内存的具体实现是什么    
 Linux共享内存通信效率非常高，进程间不需要传递数据，便可以直接访问，
 缺点也很明显，Linux共享内存没有提供同步的机制，在使用时，要借助其他的手段来处理进程间同步。
 Android匿名共享内存是基于Linux共享内存的，都是在tmpfs文件系统上新建文件，并将其映射到不同的进程空间，
@@ -130,7 +130,7 @@ SF为APP申请一块内存，然后通过binder将内存相关的信息传递给
 APP端在这块内存中绘制内容，绘制完毕后通知SF图层混排，
 再由SF将数据渲染到屏幕上。
 
-**10.relayout是如何向SurfaceFlinger申请Surface**
+### 10.relayout是如何向SurfaceFlinger申请Surface  
 
 APP去WMS登记窗口
 APP新建Surface壳子，请求WMS填充Surface
@@ -145,7 +145,7 @@ APP端获得填充信息，获取与SurfaceFlinger通信的能力
 
  
  
-**11.什么是Surface**  
+### 11.什么是Surface     
 https://blog.csdn.net/innost/article/details/47208337  
 Surface就像是UI的画布，App在Surface上作画,WindowManager创建一个Window时，
 WindowManager会为每一个Window创建一个Surface，并把该Surface传递给app以便应用在上面绘制内容。

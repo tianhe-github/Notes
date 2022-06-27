@@ -3,7 +3,7 @@
 https://blog.csdn.net/songzi1228/article/details/82772052
 
 
-##### 1.View绘制流程
+### 1.View绘制流程
 
 触发addView流程：
 
@@ -43,7 +43,7 @@ Layout：先通过 measure 测量出 ViewGroup 宽高，ViewGroup 再通过 layo
 
 Draw：绘制视图。ViewRoot创建一个Canvas对象，然后调用OnDraw()。六个步骤：①、绘制视图的背景；②、保存画布的图层（Layer）；③、绘制View的内容；④、绘制View子视图，如果没有就不用；⑤、还原图层（Layer）；⑥、绘制View的装饰(例如滚动条等等)。
 
-##### 2.MeasureSpec是什么
+### 2.MeasureSpec是什么
 MeasureSpec表示的是一个32位的整形值，它的高2位表示测量模式SpecMode，低30位表示某种测量模式下的规格大小SpecSize。MeasureSpec是View类的一个静态内部类，用来说明应该如何测量这个View。它由三种测量模式，如下：
 
 EXACTLY：精确测量模式，视图宽高指定为match_parent或具体数值时生效，表示父视图已经决定了子视图的精确大小，这种模式下View的测量值就是SpecSize的值。
@@ -55,14 +55,14 @@ UNSPECIFIED：不指定测量模式, 父视图没有限制子视图的大小，�
 MeasureSpec通过将SpecMode和SpecSize打包成一个int值来避免过多的对象内存分配，为了方便操作，其提供了打包和解包的方法，打包方法为makeMeasureSpec，解包方法为getMode和getSize。
 
 
-##### 3.子View创建MeasureSpec创建规则是什么
+### 3.子View创建MeasureSpec创建规则是什么
 根据父容器的MeasureSpec和子View的LayoutParams等信息计算子View的MeasureSpec
 
 <img src="../img/viewhuizhi1.png" width = "600" height = "300" alt="图片名称" align=center />
 
 
 
-##### 4.自定义Viewwrap_content不起作用的原因
+### 4.自定义Viewwrap_content不起作用的原因
 1.因为onMeasure()->getDefaultSize()，当View的测量模式是AT_MOST或EXACTLY时，View的大小都会被设置成子View MeasureSpec的specSize。
 ```java
 public static int getDefaultSize(int size, int measureSpec) {
@@ -83,7 +83,7 @@ public static int getDefaultSize(int size, int measureSpec) {
 <img src="../../img/viewhuizhi2.png" width = "600" height = "300" alt="图片名称" align=center />  
 3.所以当给一个View/ViewGroup设置宽高为具体数值或者match_parent，它都能正确的显示，但是如果你设置的是wrap_content->AT_MOST，则默认显示出来是其父容器的大小。如果你想要它正常的显示为wrap_content，所以需要自己重写onMeasure()来自己计算它的宽高度并设置。此时，可以在wrap_content的情况下（对应MeasureSpec.AT_MOST）指定内部宽/高(mWidth和mHeight)。
 
-##### 5.在Activity中获取某个View的宽高有几种方法
+### 5.在Activity中获取某个View的宽高有几种方法
 - Activity/View#onWindowFocusChanged：此时View已经初始化完毕，当Activity的窗口得到焦点和失去焦点时均会被调用一次，如果频繁地进行onResume和onPause，那么onWindowFocusChanged也会被频繁地调用。
 - view.post(runnable)： 通过post将runnable放入ViewRootImpl的RunQueue中，RunQueue中runnable最后的执行时机，是在下一个performTraversals到来的时候，也就是view完成layout之后的第一时间获取宽高。
 - ViewTreeObserver#addOnGlobalLayoutListener：当View树的状态发生改变或者View树内部的View的可见性发生改变时，onGlobalLayout方法将被回调。
@@ -106,13 +106,13 @@ int widthMeasureSpec = View.MeasureSpec.makeMeasureSpec(100, View.MeasureSpec.EX
 int heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(100, View.MeasureSpec.EXACTLY);
 v_view1.measure(widthMeasureSpec, heightMeasureSpec);
 
-##### 6.为什么onCreate获取不到View的宽高
+### 6.为什么onCreate获取不到View的宽高
 Activity在执行完oncreate，onResume之后才创建ViewRootImpl,ViewRootImpl进行View的绘制工作  
 调用链  
 startActivity->ActivityThread.handleLaunchActivity->onCreate
 ->完成DecorView和Activity的创建->handleResumeActivity->onResume()->DecorView添加到WindowManager->ViewRootImpl.performTraversals()方法，测量（measure）,布局（layout）,绘制（draw）, 从DecorView自上而下遍历整个View树。
 
-##### 7.View#post与Handler#post的区别
+### 7.View#post与Handler#post的区别
 ```
 public boolean post(Runnable action) {
         final AttachInfo attachInfo = mAttachInfo;
@@ -128,7 +128,7 @@ public boolean post(Runnable action) {
 
 
 
-##### 8.Android绘制和屏幕刷新机制原理
+### 8.Android绘制和屏幕刷新机制原理
 
 
 绘制原理
@@ -228,7 +228,7 @@ Choreographer， 编舞者。 指 对CPU/GPU绘制的指导，收到VSync信号 
 
 
 
-##### 9.Choreography原理
+### 9.Choreography原理
 绘制是由应用端(任何时候都有可能)发起的，如果屏幕收到vsync信号，但是这一帧的还没有绘制完，就会显示上一帧的数据，这并不是因为绘制这一帧的时间过长(超过了信号发送周期)，只是信号快来的时候才开始绘制，如果频繁的出现的这种情况。
 一般调用requestLayout触发，这个函数随时都能调用，为了只控制在vsync信号来时触发重绘引入Choreography。
 ViewRoot.doTravle()->mChoreographer.postCallback  
@@ -238,30 +238,30 @@ Choreographer对外提供了postCallback等方法，最终他们内部都是通�
 2垂直同步回调立马执行Action（CallBack/Runnable）。
 
 
-##### 10.什么是双缓冲
+### 10.什么是双缓冲
 通俗来讲就是有两个缓冲区，一个后台缓冲区和一个前台缓冲区，每次后台缓冲区接受数据，当填充完整后交换给前台缓冲，这样就保证了前台缓冲里的数据都是完整的。
 Surface 对应了一块屏幕缓冲区，是要显示到屏幕的内容的载体。每一个 Window 都对应了一个自己的 Surface 。这里说的 window 包括 Dialog, Activity, Status Bar 等。SurfaceFlinger 最终会把这些 Surface 在 z 轴方向上以正确的方式绘制出来（比如 Dialog 在 Activity 之上）。SurfaceView 的每个 Surface 都包含两个缓冲区，而其他普通 Window 的对应的 Surface 则不是。
 
-##### 11.为什么使用SurfaceView
+### 11.为什么使用SurfaceView
 我们知道View是通过刷新来重绘视图，系统通过发出VSSYNC信号来进行屏幕的重绘，刷新的时间间隔是16ms,如果我们可以在16ms以内将绘制工作完成，则没有任何问题，如果我们绘制过程逻辑很复杂，并且我们的界面更新还非常频繁，这时候就会造成界面的卡顿，影响用户体验，为此Android提供了SurfaceView来解决这一问题。他们的UI不适合在主线程中绘制。对一些游戏画面，或者摄像头，视频播放等，UI都比较复杂，要求能够进行高效的绘制，因此，他们的UI不适合在主线程中绘制。这时候就必须要给那些需要复杂而高效的UI视图生成一个独立的绘制表面Surface,并且使用独立的线程来绘制这些视图UI。
 
-##### 12.什么是SurfaceView
+### 12.什么是SurfaceView
 SurfaceView是View的子类，且实现了Parcelable接口且实现了Parcelable接口，其中内嵌了一个专门用于绘制的Surface，SurfaceView可以控制这个Surface的格式和尺寸，以及Surface的绘制位置。可以理解为Surface就是管理数据的地方，SurfaceView就是展示数据的地方。使用双缓冲机制，有自己的 surface，在一个独立的线程里绘制。
 SurfaceView虽然具有独立的绘图表面，不过它仍然是宿主窗口的视图结构中的一个结点，因此，它仍然是可以参与到宿主窗口的绘制流程中去的。从SurfaceView类的成员函数draw和dispatchDraw的实现就可以看出，SurfaceView在其宿主窗口的绘图表面上面所做的操作就是将自己所占据的区域绘为黑色，除此之外，就没有其它更多的操作了，这是因为SurfaceView的UI是要展现在它自己的绘图表面上面的。
 优点： 使用双缓冲机制，可以在一个独立的线程中进行绘制，不会影响主线程，播放视频时画面更流畅
 缺点：Surface不在View hierachy中，它的显示也不受View的属性控制，SurfaceView 不能嵌套使用。在7.0版本之前不能进行平移，缩放等变换，也不能放在其它ViewGroup中，在7.0版本之后可以进行平移，缩放等变换。
 
-##### 13.View和SurfaceView的区别
+### 13.View和SurfaceView的区别
  View适用于主动更新的情况，而SurfaceView则适用于被动更新的情况，比如频繁刷新界面。
  View在主线程中对页面进行刷新，而SurfaceView则开启一个子线程来对页面进行刷新。
  View在绘图时没有实现双缓冲机制，SurfaceView在底层机制中就实现了双缓冲机制。
 
-##### 14.SurfaceView为什么可以直接子线程绘制
+### 14.SurfaceView为什么可以直接子线程绘制
  通常View更新的时候都会调用ViewRootImpl中的performXXX()方法，在该方法中会首先使用checkThread()检查是否当前更新位于主线线程，SurfaceView提供了专门用于绘制的Surface，可以通过SurfaceView来控制Surface的格式和尺寸，SurfaceView更新就不需要考虑线程的问题，它既可以在子线程更新，也可以在主线程更新。
 
 
 
-##### 15.SurfaceView、TextureView、SurfaceTexture、GLSurfaceView
+### 15.SurfaceView、TextureView、SurfaceTexture、GLSurfaceView
 https://zhooker.github.io/2018/03/24/SurfaceTexture%E7%9A%84%E5%8C%BA%E5%88%AB/  
 SurfaceView：使用双缓冲机制，有自己的 surface，在一个独立的线程里绘制，Android7.0之前不能平移、缩放
 TextureView：它不会在WMS中单独创建窗口，而是作为一个普通View，可以和其它普通View一样进行移动，旋转，缩放，动画等变化。值得注意的是TextureView必须在硬件加速的窗口中。  
@@ -270,7 +270,7 @@ GLSurfaceView：SurfaceView不同的是，它加入了EGL的管理，并自带�
 
 
 
-##### 16.getWidth()方法和getMeasureWidth()区别
+### 16.getWidth()方法和getMeasureWidth()区别
 ①getMeasuredWidth方法获得的值是setMeasuredDimension方法设置的值，它的值在measure方法运行后就会确定
 
 ②getWidth方法获得是layout方法中传递的四个参数中的mRight-mLeft，它的值是在layout方法运行后确定的
@@ -279,7 +279,7 @@ GLSurfaceView：SurfaceView不同的是，它加入了EGL的管理，并自带�
 
 
 
-##### 17.invalidate() 和 postInvalidate() 方法的区别
+### 17.invalidate() 和 postInvalidate() 方法的区别
 requestLayout：会触发三大流程。
 invalidate：触发 onDraw 流程，在 UI 线程调用。
 postInvalidate：触发 onDraw 流程，在非 UI 线程中调用。
@@ -289,7 +289,7 @@ postInvalidate：触发 onDraw 流程，在非 UI 线程中调用。
 
 
 
-##### 18.Requestlayout，onlayout，onDraw，DrawChild区别与联系
+### 18.Requestlayout，onlayout，onDraw，DrawChild区别与联系
 requestLayout()方法 ：会导致调用 measure()过程 和 layout()过程,不一定会触发OnDraw。
  requestLayout会直接递归调用父窗口的requestLayout，直到ViewRootImpl,然后触发peformTraversals，由于mLayoutRequested为true，会导致onMeasure和onLayout被调用。不一定会触发OnDraw， 将会根据标志位判断是否需要ondraw。
 onLayout()方法(如果该View是ViewGroup对象，需要实现该方法，对每个子视图进行布局)
@@ -297,7 +297,7 @@ onDraw()方法：绘制视图本身 (每个View都需要重载该方法，ViewGr
 drawChild()：去重新回调每个子视图的draw()方法。
 
 
-##### 19.LinearLayout、FrameLayout 和 RelativeLayout 哪个效率高
+### 19.LinearLayout、FrameLayout 和 RelativeLayout 哪个效率高
 简单布局  FrameLayout>LinearLayout>RelativeLayout
 复杂布局  RelativeLayout>LinearLayout>FrameLayout
 （1）Fragment是从上到下的一个堆叠的方式布局的，那当然是绘制速度最快，只需要将本身绘制出来即可，但是由于它的绘制方式导致在复杂场景中直接是不能使用的，所以工作效率来说Fragment仅使用于单一场景  
@@ -307,7 +307,7 @@ drawChild()：去重新回调每个子视图的draw()方法。
  复杂布局:RelativeLayout 在性能上更好，使用 LinearLayout 容易产生多层嵌套的布局结构，这在性能上是不好的。 而 RelativeLayout 通常层级结构都比较扁平，很多使用LinearLayout 的情况都可以用一个 RelativeLayout 来替代，以降低布局的嵌套层级，优化性能。
 
 
-##### 20.LinearLayout的绘制流程
+### 20.LinearLayout的绘制流程
 onMeasure():1>：把 ViewRootImpl 的测量模式 传递给 DecorView，然后 DecorView 把测量模式 传递给 LinearLayout，遍历子元素并对每个子元素执行measureChildBeforeLayout方法，这个方法内部会调用子元素的measure方法，这样各个子元素就开始依次进入measure过程。
 2.LinearLayout类的measureVertical方法会遍历每一个子元素并且执行LinearLayout类的measureChildBeforeLayout方法对子元素进行测量，LinearLayout类的measureChildBeforeLayout方法内部会执行子元素的measure方法。在代码中，变量mTotalLength会是用来存放LinearLayout在竖直方向上的当前高度，每遍历一个子元素，mTotalLength就会增加
 onLayout(): onLayout():
@@ -315,7 +315,7 @@ onLayout(): onLayout():
 其中会遍历调用每个子View的setChildFrame方法为子元素确定对应的位置。其中的childTop会逐渐增大，意味着后面的子元素会被放置在靠下的位置。
 
 
-#####  21.自定义 View 的流程和注意事项
+###  21.自定义 View 的流程和注意事项
 大多数自定义View要么是在onDraw方法中画点东西，和在onTouchEvent中处理触摸事件。  
 自定义View步骤  ：
 onMeasure，可以不重写，不重写的话就要在外面指定宽高，建议重写；
@@ -334,7 +334,7 @@ onLayout（必须），在这里对子View进行布局；
 如果有自定义布局属性的，在构造方法中取得属性后应及时调用recycle方法回收资源；  
 onDraw和onTouchEvent方法中都应尽量避免创建对象，过多操作可能会造成卡顿；
 
-#####  22.自定义View如何考虑机型适配
+###  22.自定义View如何考虑机型适配
 合理使用warp_content，match_parent。
 尽可能地使用RelativeLayout。  
 针对不同的机型，使用不同的布局文件放在对应的目录下，android会自动匹配。  
@@ -343,7 +343,7 @@ onDraw和onTouchEvent方法中都应尽量避免创建对象，过多操作可�
 引入android的百分比布局。  
 切图的时候切大分辨率的图，应用到布局当中，在小分辨率的手机上也会有很好的显示效果。
 
-#####  23.自定义控件优化方案
+###  23.自定义控件优化方案
 1.降低View.onDraw（）的复杂度
 onDraw不要创建新的局部对象
 onDraw不执行耗时操作
@@ -362,11 +362,11 @@ Fragment 都设有背景色，即 ViewPager 则无必要设置，可移除
  给 Canvas 设置一个裁剪区域，只有在该区域内才会被绘制，区域之外的都不绘制
 
 
-##### 24.invalidate怎么局部刷新
+### 24.invalidate怎么局部刷新
 
 
 
-##### 25.View加载流程（setContentView）
+### 25.View加载流程（setContentView）
 
 
 ![xnyh1](../img/xnyh1.png)

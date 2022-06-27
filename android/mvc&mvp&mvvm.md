@@ -1,6 +1,6 @@
 # mvc&mvp&mvvm
 
-####  1.MVC及其优缺点
+###  1.MVC及其优缺点
 
 原理
 
@@ -25,7 +25,7 @@ Android的控制层的重任通常落在了众多的Activity的肩上。
 
 
 
-####  2.MVP及其优缺点
+###  2.MVP及其优缺点
 
 原理
 
@@ -178,7 +178,7 @@ public abstract class BasePresenter<U extends IUI> implements IPresenter {
 ```
 
 
-####  3.MVVM及其优缺点
+###  3.MVVM及其优缺点
 
 
 
@@ -227,11 +227,11 @@ ViewModel与View层的通信变得更加困难了,所以在一些极其简单的
 
 
 
-####  4.MVC与MVP区别
+###  4.MVC与MVP区别
 
 View与Model并不直接交互，而是通过与Presenter交互来与Model间接交互。而在MVC中View可以与Model直接交互。MVP 隔离了MVC中的 M 与 V 的直接联系后，靠 Presenter 来中转，所以使用 MVP 时 P 是直接调用 View 的接口来实现对视图的操作的，
 
-####  5.MVP如何管理Presenter的生命周期，何时取消网络请求
+###  5.MVP如何管理Presenter的生命周期，何时取消网络请求
 
 https://blog.csdn.net/mq2553299/article/details/78927617
 

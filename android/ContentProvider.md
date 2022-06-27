@@ -1,6 +1,6 @@
 # ContentProvider
 
-##  1. 什么是ContentProvider及其使用
+###  1. 什么是ContentProvider及其使用
 
 ContentProvider的作用是为不同的应用之间数据共享，提供统一的接口，我们知道安卓系统中应用内部的数据是对外隔离的，要想让其它应用能使用自己的数据（例如通讯录）这个时候就用到了ContentProvider。
 
@@ -10,7 +10,7 @@ ContentProvider（内容提供者）通过 uri 来标识其它应用要访问的
 
 还可以通过注册 ContentObserver（内容观察者）来监听数据是否发生了变化来对应的刷新页面
 
-##  2. ContentProvider, ContentResolver, ContentObserver之间的关系
+###  2. ContentProvider, ContentResolver, ContentObserver之间的关系
 
 ContentProvider：管理数据，提供数据的增删改查操作，数据源可以是数据库、文件、XML、网络等。
 
@@ -18,7 +18,7 @@ ContentResolver：外部进程可以通过 ContentResolver 与 ContentProvider �
 
 ContentObserver：观察 ContentProvider 中的数据变化，并将变化通知给外界。
 
-##  3. ContentProvider的实现原理
+###  3. ContentProvider的实现原理
 
 https://juejin.im/post/6844904062173839368#heading-0
 
@@ -60,7 +60,7 @@ AMS作为一个中间管理员的身份，所有的provider会向它注册
 
 向AMS请求到provider之后，就可以在client和server之间自行binder通信，不需要再经过systemserver
 
-##  4. ContentProvider的优点
+###  4. ContentProvider的优点
 
 **封装**
 
@@ -72,7 +72,7 @@ AMS作为一个中间管理员的身份，所有的provider会向它注册
 
 应用程序间的数据共享还有另外的一个重要话题，就是数据更新通知机制了。因为数据是在多个应用程序中共享的，当其中一个应用程序改变了这些共享数据的时候，它有责任通知其它应用程序，让它们知道共享数据被修改了，这样它们就可以作相应的处理。
 
-##  5. Uri 是什么
+###  5. Uri 是什么
 
 定义：Uniform Resource Identifier，即统一资源标识符
 
