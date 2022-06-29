@@ -304,26 +304,26 @@
 
 ### 27.jectpack
 
-* 1.[Navigation](1.android/27.jectpack/jetpack.md)
-* 2.[DataBinding](1.android/27.jectpack/jetpack.md)
-* 3.[Viewmodel](1.android/27.jectpack/jetpack.md)
-* 4.[livedata](1.android/27.jectpack/jetpack.md)
-* 5.[liferecycle](1.android/27.jectpack/jetpack.md)
+* 1.[Navigation](android/jetpack.md)
+* 2.[DataBinding](android/jetpack.md)
+* 3.[Viewmodel](android/jetpack.md)
+* 4.[livedata](android/jetpack.md)
+* 5.[liferecycle](android/jetpack.md)
 
 ### 28. 开源框架
 
-* 1.[Okhttp源码流程, 线程池](/开源框架.md)
-* 2.[Okhttp拦截器, addInterceptor 和 addNetworkdInterceptor区别](/开源框架.md)
-* 3.[Okhttp责任链模式](/开源框架.md)
-* 4.[Okhttp缓存怎么处理](/开源框架.md)
-* 5.[Okhttp连接池和socket复用](/开源框架.md)
-* 6.[Glide怎么绑定生命周期](/开源框架.md)
-* 7.[Glide缓存机制, 内存缓存，磁盘缓存](/开源框架.md)
-* 8.[Glide与Picasso的区别](/开源框架.md)
-* 9.[LruCache原理](/开源框架.md)
-* 10.[Retrofit源码流程, 动态代理](/开源框架.md)
-* 11.[LeakCanary弱引用, 源码流程](/开源框架.md)
-* 12. Eventbus
+* 1.[Okhttp源码流程, 线程池](android/开源框架.md)
+* 2.[Okhttp拦截器, addInterceptor 和 addNetworkdInterceptor区别](android/开源框架.md)
+* 3.[Okhttp责任链模式](android/开源框架.md)
+* 4.[Okhttp缓存怎么处理](android/开源框架.md)
+* 5.[Okhttp连接池和socket复用](android/开源框架.md)
+* 6.[Glide怎么绑定生命周期](android/开源框架.md)
+* 7.[Glide缓存机制, 内存缓存，磁盘缓存](android/开源框架.md)
+* 8.[Glide与Picasso的区别](android/开源框架.md)
+* 9.[LruCache原理](android/开源框架.md)
+* 10.[Retrofit源码流程, 动态代理](android/开源框架.md)
+* 11.[LeakCanary弱引用, 源码流程](android/开源框架.md)
+* 12.[Eventbus](android/EventBus.md)
 * 13. Rxjava  
     
 
