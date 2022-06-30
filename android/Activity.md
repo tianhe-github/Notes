@@ -79,7 +79,7 @@
 
 ## 3. Activity生命周期
 
-![Activity生命周期](../../img/activity生命周期.png)
+![Activity生命周期](../img/activity生命周期.png)
 
 ### 3.1 执行顺序
 
