@@ -61,16 +61,23 @@
 
 * [160. 相交链表](algorithm/leetcode/160.%20%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8.md)
 
+* [205. 同构字符串](algorithm/leetcode/205.%20%E5%90%8C%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
+
 * [206. 反转链表](algorithm/leetcode/206.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8.md)
 
 * [226. 翻转二叉树](algorithm/leetcode/226.%20%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91.md)
 
 * [283. 移动零](algorithm/leetcode/283.%20%E7%A7%BB%E5%8A%A8%E9%9B%B6.md)
        
+* [344. 反转字符串](algorithm/leetcode/344.%20%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2.md)2
+
+* [345. 反转字符串中的元音字母](algorithm/leetcode/345.%20%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%85%83%E9%9F%B3%E5%AD%97%E6%AF%8D.md)
 
 * [394. 字符串解码](algorithm/leetcode/394.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A7%A3%E7%A0%81.md)
   
 * [415. 字符串相加](algorithm/leetcode/415.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0.md)
+
+* [434. 字符串中的单词数](algorithm/leetcode/434.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D%E6%95%B0.md)
   
 * [448. 找到所有数组中消失的数字](algorithm/leetcode/448.%20%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97.md)
 
