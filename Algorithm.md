@@ -28,6 +28,8 @@
 
 * [9. 回文数](algorithm/leetcode/9.%20%E5%9B%9E%E6%96%87%E6%95%B0.md)
 
+* [20. 有效的括号](algorithm/leetcode/20.%20%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7.md)
+
 * [21. 合并两个有序链表](algorithm/leetcode/21.%20%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8.md)
 
 * [26. 删除有序数组中的重复项](algorithm/leetcode/26.%20%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9.md)
@@ -67,16 +69,19 @@
        
 
 * [394. 字符串解码](algorithm/leetcode/394.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A7%A3%E7%A0%81.md)
-
+  
+* [415. 字符串相加](algorithm/leetcode/415.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0.md)
+  
 * [448. 找到所有数组中消失的数字](algorithm/leetcode/448.%20%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97.md)
 
 * [674. 最长连续递增序列](algorithm/leetcode/674.%20%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E9%80%92%E5%A2%9E%E5%BA%8F%E5%88%97%20copy.md)    
+
+* [704. 二分查找](algorithm/leetcode/704.%20%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.md)    
 
 * [724. 寻找数组的中心下标](algorithm/leetcode/724.%20%E5%AF%BB%E6%89%BE%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E5%BF%83%E4%B8%8B%E6%A0%87.md)
 
 * [876. 链表的中间结点](algorithm/leetcode/876.%20%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9.md)
 
-    
 
     
 
