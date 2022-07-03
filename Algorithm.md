@@ -50,6 +50,8 @@
 
 * [110. 平衡二叉树](algorithm/leetcode/110.%20%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91.md)
 
+* [121. 买卖股票的最佳时机](algorithm/leetcode/121.%20%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA.md)
+
 * [141. 环形链表](algorithm/leetcode/141.%20%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8.md)
 
 * [142. 环形链表 II](algorithm/leetcode/142.%20%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%20II.md)
