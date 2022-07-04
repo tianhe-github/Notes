@@ -34,6 +34,8 @@
 
 * [26. 删除有序数组中的重复项](algorithm/leetcode/26.%20%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9.md)
 
+* [53. 最大子数组和](algorithm/leetcode/53.%20%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C.md)
+
 * [70. 爬楼梯](algorithm/leetcode/70.%20%E7%88%AC%E6%A5%BC%E6%A2%AF.md)
 
 * [83. 删除排序链表中的重复元素](algorithm/leetcode/83.%20%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0.md)
