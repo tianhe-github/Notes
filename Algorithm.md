@@ -44,6 +44,8 @@
 
 * [94. 二叉树的中序遍历](algorithm/leetcode/94.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86.md)
 
+* [100. 相同的树](algorithm/leetcode/100.%20%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91.md)
+
 * [101. 对称二叉树](algorithm/leetcode/101.%20%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91%20copy.md)
 
 * [102. 二叉树的层序遍历](algorithm/leetcode/102.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86.md)
