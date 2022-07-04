@@ -85,6 +85,9 @@
   
 * [448. 找到所有数组中消失的数字](algorithm/leetcode/448.%20%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97.md)
 
+* [470. 用 Rand7() 实现 Rand10()](algorithm/leetcode/470.%20%E7%94%A8%20Rand7()%20%E5%AE%9E%E7%8E%B0%20Rand10().md)
+
+
 * [509. 斐波那契数](algorithm/leetcode/509.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0.md)
 
 * [674. 最长连续递增序列](algorithm/leetcode/674.%20%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E9%80%92%E5%A2%9E%E5%BA%8F%E5%88%97%20copy.md)    
